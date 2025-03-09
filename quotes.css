@@ -1,0 +1,180 @@
+.space{
+    width: 100%;
+    height: 40px;
+}
+
+.changing-bg {
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.changing-bg:hover{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    
+}
+
+
+/* Background Animation 
+@keyframes bgChange {
+    0% { background: #0d79c7; }
+    25% { background: #17dacd; }
+    50% { background: #07b8f3; }
+    75% { background: #0d5e7c; }
+    100% { background: #0c44b3; }
+}
+*/
+
+/* Transparent Wavy Card */
+.wave-card {
+    width: 8%;
+    height: 15vh;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    
+}
+
+.wave-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.material-symbols-outlined {
+    position: absolute;
+    top: 45px;
+    left: 43px;
+   
+    transition: opacity 0.3s ease-in-out;
+}
+.changing-bg:hover .material-symbols-outlined {
+    opacity: 0;
+}
+
+
+
+.text-section h1{
+    font-family: "Playball", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.text-section h2{
+    font-family: "Bonheur Royale", cursive;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 2rem;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    
+}
+
+.text-section {
+    position: absolute;
+    bottom: 10px;
+    left: 40%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.changing-bg:hover .text-section {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+    transition-delay: 2.5s;
+}
+
+.changing-bg:not(:hover) .text-section {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0px);
+    transition-delay: 0s;
+}
+
+
+.changing-bg:hover .wave-card {
+    animation: waveRotate 3s ease-in-out forwards;
+}
+
+
+
+/* Reverse animation when mouse leaves */
+.changing-bg:not(:hover) .wave-card {
+    animation: waveReverse 2s ease-in-out forwards;
+}
+
+.changing-bg:hover .wave-card img {
+    opacity: 1; /* Image becomes visible after rotation */
+    transition-delay: 2.5s; /* Delay to match rotation completion */
+}
+
+.changing-bg:not(:hover) .wave-card img {
+    opacity: 0; /* Image disappears */
+    transition-delay: 0s; /* No delay for hiding */
+}
+
+
+/* Keyframe animation for rotation and movement */
+@keyframes waveRotate {
+    0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+    25%{
+        border-radius: 7%;
+    }
+    50% {
+        
+        border-radius: 8%;
+    }
+    75%{
+        border-radius: 9%;
+    }
+    100% {
+        transform: translateX(1200px) rotate(360deg) scale(1.5);
+        border-radius: 10%;
+    }
+}
+
+/* Reverse animation when dehovering */
+@keyframes waveReverse {
+    0% {
+        transform: translateX(1200px) rotate(360deg) scale(1.5);
+    }
+    25%{
+        border-radius: 10%;
+    }
+    50% {
+        border-radius: 20%;
+    }
+    75%{
+        border-radius: 30%;
+    }
+    100% {
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+}

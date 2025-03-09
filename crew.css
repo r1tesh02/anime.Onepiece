@@ -1,0 +1,264 @@
+
+
+.titles {
+    text-align: center;
+    margin: 2rem 0;
+    animation: float-img 1.5s ease-in-out infinite;
+}
+
+@keyframes float-img{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-.75rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+    }
+    .titles img{
+        margin-top: -10px;
+        width: 100px;
+        height: 100px;
+    }
+  .con img{
+      margin-top: -10px;
+      width: 100px;
+      height: 100px;
+  }
+
+  .con img {
+    width: 80px;  /* Adjust size as needed */
+    height: 80px; /* Maintain a perfect circle */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the circular area */
+    border: 3px solid white; /* Optional: Adds a border */
+      /* Space between image and background */
+    box-shadow: 0px 6px 10px rgba(215, 231, 231, 0.7); 
+    transition: 0.3s ease-in-out; /* Optional shadow */
+}
+
+
+.con img:hover {
+    box-shadow: 0px 10px 20px rgb(226, 239, 243);  /* Stronger glow on hover */
+    filter: brightness(1.3);
+}
+
+.destinations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 0 3rem;
+}
+
+.destination {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  /*background-color:rgb(50, 202, 207); */
+  background-color: rgba(243, 228, 228,0.3);
+  border:1px solid white;
+    filter: brightness(1.2);
+    border-radius: 1rem;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+.destination:hover {
+    transform: translateX(0.4rem) translateY(-1rem);
+    box-shadow: var(--hover-color) 0px 10px 20px ;
+    background-color: var(--hover-color) ;
+    filter: brightness(1.6);
+    border:1px solid var(--hover-color);
+    transition: 0.3s ease-in-out;
+    .info h5,div {
+        color: var(--hover-color);
+    }
+  
+}
+
+
+.destination img {
+    width: 100%;
+    filter: brightness(60%);
+    border-radius: 1rem;
+}
+.info {
+    display: flex;
+    flex-direction: column;  /* Ensures elements stack vertically */
+    align-items: center;
+    text-align: center;
+   
+}
+
+.info h5 {
+    margin: 0;
+    font-size: 1rem;
+    color: rgb(108, 102, 102);
+   
+}
+
+.info div {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: rgb(111, 103, 103);
+   
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .destinations {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+}
+
+/* Mini image styles */
+.mini-image {
+    position: absolute;
+    margin-top: 10px; /* Position it above the main image */
+    margin-left: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Adjust size */
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    transition: 0.3s ease-in-out;
+}
+
+.mini-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destination {
+    position: relative; /* Needed for absolute positioning of mini-image */
+}
+
+.destination:hover .mini-image {
+    display: block;
+}
+
+/*
+.spots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 0 3rem;
+}
+
+.spot {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: rgb(50, 202, 207);
+    filter: brightness(1.2);
+    border-radius: 1rem;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+.spot:hover {
+    transform: translateX(0.4rem) translateY(-1rem);
+    box-shadow: var(--hover-color) 0px 10px 20px;
+    background-color: var(--hover-color);
+    filter: brightness(1.5);
+    transition: 0.3s ease-in-out;
+}
+
+.spot img {
+    width: 100%;
+    filter: brightness(60%);
+    border-radius: 1rem;
+}
+*/
+.spots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 900px; /* Adjust based on content */
+    width: 100%;
+    gap: 3rem;
+}
+
+/* Spot cards initially overlap at the center */
+.spot {
+    position: absolute;
+    padding: 1rem;
+    width: 350px; /* Adjust width */
+    height: 900px; /* Adjust height */
+    background-color: rgba(243, 228, 228,0.3);
+  border:1px solid white;
+   gap: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: transform 0.5s ease-in-out, left 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+.spot *{
+   
+    opacity: 0;
+}
+.spot img{
+    opacity: 1;
+}
+.spot:hover *{
+    opacity: 1;
+}
+
+.spot:hover {
+    transform: translateX(0.4rem) translateY(-1rem);
+    box-shadow: var(--hover-color) 0px 10px 20px;
+    background-color: var(--hover-color);
+    border:1px solid var(--hover-color);
+    filter: brightness(1.3);
+    transition: 0.3s ease-in-out;
+   
+    
+}
+/* Images inside the spot */
+.spot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures proper fit */
+    border-radius: 1rem;
+}
+
+/* Initially overlapping at the center */
+.spot:nth-child(1) { left: 50%; transform: translateX(-50%); z-index: 3; }
+.spot:nth-child(2) { left: 50%; transform: translateX(-50%); z-index: 2; }
+.spot:nth-child(3) { left: 50%; transform: translateX(-50%); z-index: 1; }
+
+/* On hover, spread out */
+.spots:hover .spot:nth-child(1) { left: 20%; transform: translateX(-50%); }
+.spots:hover .spot:nth-child(2) { left: 50%; transform: translateX(-50%); }
+.spots:hover .spot:nth-child(3) { left: 80%; transform: translateX(-50%); }
+@media screen and (max-width: 768px) {
+    .spot:not(:first-child) {
+        display: none; /* Hide all except the first one */
+    }
+
+    .spot:first-child {
+        width: 100%; /* Adjust width for better mobile fit */
+        height: auto;
+        padding: 2rem;
+        position: absolute; /* Ensure it's not absolute on mobile */
+       
+    }
+    .spots:hover .spot:nth-child(1) { left: 0%; transform: translateX(0%); }
+
+}
