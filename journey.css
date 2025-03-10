@@ -192,7 +192,7 @@ section img#mountains_front {
     font-family: "Yatra One", system-ui;
   font-weight: 400;
   font-style: normal;
-    font-size: 36px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 .text-section p {
@@ -252,58 +252,47 @@ section img#mountains_front {
     opacity: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .wave-card {
-        width: 75%;
-        height: auto;
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
-    }
-
-    .text-section {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .image-stack {
-        width: 180px;
-        height: 180px;
-    }
-
-    .hover-image {
-        width: 180px;
-        right: 50px;
-    }
-}
 
 @media (max-width: 768px) {
-    .wave-card {
-        width: 90%;
-        padding: 20px;
+    .text-section p,.hover-image{
+        display: none; /* Hides text and image */
     }
 
-    .text-section {
-        font-size: 18px;
+    .changing-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .text-section h2 {
-        font-size: 28px;
+    .wave-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
-    .title {
-        font-size: 28px;
+    .text-section{
+        height: 50%;
     }
-
-    .image-stack {
-        width: 150px;
-        height: 150px;
+    .text-section h2{
+        font-size: 15px;
     }
-
-    .hover-image {
+    
+    .background  video {
+        width: 100%;
+        height:auto;
+        object-fit: cover; /* Ensures video fills the screen */
+    }
+    section img#mountains_behind {
+        transform: none !important; /* Stops translation */
+        transition: none !important; /* Removes animation */
+    }
+    section #text{
         display: none;
     }
+    
 }
+
 
 .video-container {
     position: relative;
@@ -349,7 +338,7 @@ section img#mountains_front {
     .video-container {
         order: 2;
         width: 100%;
-        height: 180px;
+        height: 200px;
     }
 
     .video-container span {
